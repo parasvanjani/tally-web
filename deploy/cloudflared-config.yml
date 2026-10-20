@@ -1,0 +1,13 @@
+# C:\ProgramData\cloudflared\config.yml  (or %USERPROFILE%\.cloudflared\config.yml)
+# Created by:  cloudflared tunnel create tally-web
+tunnel: tally-web
+credentials-file: C:\ProgramData\cloudflared\<TUNNEL-UUID>.json
+
+ingress:
+  # Only the gateway is published. TallyPrime's port 9000 and RDP are NOT.
+  - hostname: books.yourdomain.com
+    service: http://127.0.0.1:8787
+    originRequest:
+      noTLSVerify: false
+      connectTimeout: 10s
+  - service: http_status:404

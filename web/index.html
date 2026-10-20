@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f3d3e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Books</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">₹</span>
+      <select id="company" aria-label="Company"></select>
+    </div>
+    <span id="who" class="who"></span>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main id="view" tabindex="-1">
+    <p class="muted center">Loading…</p>
+  </main>
+
+  <nav class="tabs" aria-label="Sections">
+    <a href="#/" data-tab="home"><span class="ico">◧</span>Home</a>
+    <a href="#/ledgers" data-tab="ledgers"><span class="ico">☰</span>Ledgers</a>
+    <a href="#/daybook" data-tab="daybook"><span class="ico">▤</span>Day Book</a>
+    <a href="#/new" data-tab="new" id="tab-new" hidden><span class="ico">＋</span>Entry</a>
+  </nav>
+
+  <template id="tpl-line">
+    <div class="line">
+      <select class="side" aria-label="Dr or Cr"><option>Dr</option><option>Cr</option></select>
+      <input class="ledger" list="ledger-list" placeholder="Ledger" autocomplete="off" aria-label="Ledger">
+      <input class="amount" inputmode="decimal" placeholder="0.00" aria-label="Amount">
+      <button type="button" class="rm" aria-label="Remove line">✕</button>
+    </div>
+  </template>
+  <datalist id="ledger-list"></datalist>
+
+  <script src="app.js"></script>
+</body>
+</html>
